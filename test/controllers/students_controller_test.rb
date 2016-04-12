@@ -9,21 +9,29 @@ class StudentsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+
+    assert_select "form"
   end
 
   test "should get show" do
-    get :show, id: 1
+    @bob = students(:bob)
+    get :show, id: @bob.id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: 1
+    @bob = students(:bob)
+    get :edit, id: @bob.id
     assert_response :success
+    assert_select "form"
   end
 
   test "should get update" do
-    patch :update, id: 1
-    assert_redirected_to controller: "students", action: "show", id: 1
+    @bob = students(:bob)
+    patch :update, id: @bob.id, student: { name: "Jill" }
+    assert_redirected_to controller: "students", action: "show", id: @bob.id
+
+    assert_equal "Jill", assigns[:student].name
   end
 
   test "should get create" do
@@ -36,7 +44,10 @@ class StudentsControllerTest < ActionController::TestCase
   end
 
   test "should get delete" do
-    delete :destroy, id: 1
+    @bob = students(:bob)
+    prev_student_count = Student.count
+    delete :destroy, id: @bob.id
     assert_redirected_to controller: "students", action: "index"
+    assert_equal prev_student_count - 1, Student.count
   end
 end

@@ -1,2 +1,9 @@
 <h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+
+<%= form_tag("/students") do %>
+  <%= label_tag "student[name]", "Name" %>
+  <%= text_field_tag "student[name]" %>
+  <%= label_tag "student[photo_url]", "Photo URL" %>
+  <%= text_field_tag "student[photo_url]" %>
+  <%= submit_tag %>
+<% end %>

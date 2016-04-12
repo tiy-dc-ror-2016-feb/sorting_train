@@ -1,2 +1,34 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<h1>Students</h1>
+
+<%= link_to "PICK STUDENT", pick_student_path, class: 'epic-btn', method: :post %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        # Picks
+      </th>
+      <th>
+        Last Picked
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+    <tr>
+      <td>
+        <%= link_to student.name, student_path(student.id) %>
+      </td>
+      <td>
+        <%= student.picks.count %>
+      </td>
+      <td>
+        <%= student.picks.last.created_at if student.picks.count > 0 %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

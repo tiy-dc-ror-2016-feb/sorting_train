@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  photo_url: MyString
+bob:
+  name: Bob
+  photo_url: https://placekitten.com/500/500
 
-two:
-  name: MyString
-  photo_url: MyString
+joe:
+  name: Joe
+  photo_url: https://placekitten.com/500/500

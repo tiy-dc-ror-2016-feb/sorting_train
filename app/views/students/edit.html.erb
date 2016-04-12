@@ -1,2 +1,9 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<h1>Editing <%= @student.name %> </h1>
+
+<%= form_tag(student_path(@student.id), method: :patch) do %>
+  <%= label_tag "student[name]", "Name" %>
+  <%= text_field_tag "student[name]", @student.name %>
+  <%= label_tag "student[photo_url]", "Photo URL" %>
+  <%= text_field_tag "student[photo_url]", @student.photo_url %>
+  <%= submit_tag %>
+<% end %>

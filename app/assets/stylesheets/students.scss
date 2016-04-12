@@ -1,3 +1,24 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.epic-btn {
+  background-color: #C3C3C3;
+  background: linear-gradient(white, #C6C6C6, #ADADAD);
+  // text-shadow: 0 4px red;
+  margin: 20px;
+  padding: 18px;
+  font-weight: bold;
+  color: #555555;
+  font-family: arial;
+  font-size: 24px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 1px 1px #616161, 0 0 0 6px #C9C9C9, 0 0 0 8px white, 0 0 0 9px #606060;
+}
+
+.epic-btn::before, .epic-btn::after{
+ content: " ★ ";
+ color: #888888;
+ font-size: 30px;
+}
