@@ -1,8 +1,6 @@
 <h1>Students</h1>
 
-<%= link_to "PICK STUDENT", pick_student_path, class: 'epic-btn', method: :post %>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>
@@ -14,6 +12,7 @@
       <th>
         Last Picked
       </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -23,12 +22,18 @@
         <%= link_to student.name, student_path(student.id) %>
       </td>
       <td>
-        <%= student.picks.count %>
+        <%= student.count %>
       </td>
       <td>
         <%= student.picks.last.created_at if student.picks.count > 0 %>
+      </td>
+      <td>
+        <%= link_to "show", student_path(student.id), class: 'btn btn-default btn-xs' %>
+        <%= link_to "✕", student_path(student.id), class: 'btn btn-danger btn-xs' %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "PICK", pick_student_path, class: 'epic-btn', method: :post %>
