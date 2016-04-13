@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 bob:
-  name: Bob
+  first_name: Bob
+  last_name: Miller
   photo_url: https://placekitten.com/500/500
 
 joe:
-  name: Joe
+  first_name: Joe
+  last_name: Jackson
   photo_url: https://placekitten.com/500/500

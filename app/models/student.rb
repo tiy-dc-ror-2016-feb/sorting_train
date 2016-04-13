@@ -1,6 +1,16 @@
 class Student < ActiveRecord::Base
   has_many :picks
 
+  def name
+    [first_name, last_name].join(" ")
+  end
+
+  def name=(name)
+    name_components = name.split
+    self.first_name = name_components.first
+    self.last_name = name_components.last
+  end
+
   def pick!
     logger.info "PICKING #{name}"
     Pick.create(student_id: id)

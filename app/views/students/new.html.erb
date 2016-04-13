@@ -1,18 +1,17 @@
 <h1>New student</h1>
 
-<%= form_tag("/students") do %>
-
+<%= form_for @student do |f| %>
   <div class="form-group">
-    <%= label_tag "student[name]", "Name" %>
-    <%= text_field_tag "student[name]", nil ,  class: 'form-control'%>
+    <%= f.label :name %>
+    <%= f.text_field :name , class: 'form-control'%>
   </div>
 
   <div class="form-group">
-    <%= label_tag "student[photo_url]", "Photo URL" %>
-    <%= text_field_tag "student[photo_url]", nil ,  class: 'form-control'%>
+    <%= f.label :photo_url %>
+    <%= f.url_field :photo_url, class: 'form-control'%>
   </div>
 
-  <%= submit_tag nil, class: 'btn btn-primary'%>
-
-  <%= link_to "Home", students_path, class: 'btn btn-default' %>
+  <%= f.submit class: 'btn btn-danger'%>
 <% end %>
+
+<%= link_to "Home", students_path, class: 'btn btn-default' %>

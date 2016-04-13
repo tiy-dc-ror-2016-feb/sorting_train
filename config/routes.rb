@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  get "/students" => "students#index"
-  get "/students/new" => "students#new", as: "new_student"
-  get "/students/:id" => "students#show", as: "student"
-  get "/students/:id/edit" => "students#edit", as: "edit_student"
-
-  post "/students/pick" => "students#pick", as: "pick_student"
-
-  patch "/students/:id" => "students#update"
-  post "/students" => "students#create"
-  delete "/students/:id" => "students#destroy", as: "delete_student"
+  resources :students do
+    collection do
+      post "pick"
+    end
+  end
+  # post "/students/pick" => "students#pick", as: "pick_student"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
