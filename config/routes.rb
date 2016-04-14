@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "login" => "login#new"
   post "login" => "login#create"
+  delete "logout" => "login#destroy", as: "logout"
 
   get "signup" => "signup#new"
   post "signup" => "signup#create"

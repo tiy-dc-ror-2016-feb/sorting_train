@@ -26,6 +26,26 @@
   </head>
 
   <body>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="#" class="navbar-brand">Sorting Train</a></li>
+          <li><%= link_to "Students", students_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-text">
+              <% if current_user %>
+                Welcome, <%= current_user.email %>!
+              <% end %>
+            </p>
+          </li>
+          <li>
+            <%= link_to "Logout", logout_path, method: :delete %>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="container">
       <%= yield %>
     </div>

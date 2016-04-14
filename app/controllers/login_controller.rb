@@ -8,8 +8,13 @@ class LoginController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      render :new
+      redirect_to login_path
     end
+  end
+
+  def destroy
+    session[:user_id] = nil if current_user
+    redirect_to login_path
   end
 
   def user_params

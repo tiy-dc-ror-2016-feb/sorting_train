@@ -45,8 +45,4 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:name, :photo_url, :password_confirmation)
   end
-
-  def authenticate!
-    redirect_to(login_path) unless current_user
-  end
 end

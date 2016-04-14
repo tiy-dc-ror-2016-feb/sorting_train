@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :email, presence: :true
+  validates :email, presence: :true, uniqueness: true
   validates :password, confirmation: true
 
   def password
