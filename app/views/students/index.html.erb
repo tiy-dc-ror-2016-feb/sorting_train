@@ -1,5 +1,10 @@
 <h1>Students</h1>
-
+<pre>
+  <code><%= session.to_hash %></code>
+</pre>
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+<% end %>
 <table class="table">
   <thead>
     <tr>

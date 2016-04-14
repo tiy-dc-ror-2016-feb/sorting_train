@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get "login" => "login#new"
+  post "login" => "login#create"
+
+  get "signup" => "signup#new"
+  post "signup" => "signup#create"
+
   resources :students do
     collection do
       post "pick"

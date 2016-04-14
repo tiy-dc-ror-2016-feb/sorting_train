@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :authenticate!
+
   def index
     @students = Student.all
   end
@@ -41,6 +43,10 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :photo_url)
+    params.require(:student).permit(:name, :photo_url, :password_confirmation)
+  end
+
+  def authenticate!
+    redirect_to(login_path) unless current_user
   end
 end
